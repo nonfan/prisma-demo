@@ -6,7 +6,7 @@ description: 使用 Prisma 可以为您提供一流的 TypeScript ORM、声明�
 
 hero:
   name: "Prisma ORM"
-  text: "使用 Prisma，您可以获得一流的 TypeScript ORM、声明式数据库迁移系统以及开箱即用的数据库"
+  text: "一流的 TypeScript ORM、声明式数据库迁移系统以及开箱即用的数据库"
   tagline: ⚠️ 免责声明：本文内容为个人学习记录，不构成专业建议，仅供参考。如有错误欢迎指正。
   actions:
     - theme: brand
@@ -17,11 +17,29 @@ hero:
       link: /overview/getting-started
 
 features:
-  - title: 防止运行时错误
-    details: 我们不想浪费时间跟踪运行时错误。我们通过让 Diesel 消除编译时数据库交互错误的可能性来实现这一点。
-  - title: 为性能而生
-    details: Diesel 提供了一个高级查询构建器，让您在 Rust 而不是 SQL 中思考问题。我们专注于零成本抽象，使 Diesel 能够运行查询并加载数据，速度甚至比 C 更快。
+  - title: 类型安全
+    icon: 
+      src: "/icons/type.svg"
+    details: Prisma 提供完全类型安全的数据库访问方式，在开发阶段即捕捉错误，提升开发效率，防止运行时异常。
+
+  - title: 为开发体验而生
+    icon:
+      src: "/icons/dev.svg"
+    details: Prisma 拥有现代化的客户端 API，配合自动补全和 Prisma Studio 可视化管理工具，让开发更快速、更愉悦。
+
   - title: 支持的数据库
-    details: Prisma 支持多种关系型数据库：PostgreSQL、MySQL、SQLite、MongoDB
+    icon:
+      src: "/icons/db.svg"
+    details: Prisma 支持 PostgreSQL、MySQL、SQLite、SQL Server、MongoDB 等多种主流数据库，适用于多种场景。
+
+  - title: 自动生成客户端
+    details: 根据数据模型自动生成强类型的 Prisma Client，无需手写 SQL，查询语法直观易用。
+
+  - title: 数据迁移系统
+    details: Prisma 提供完善的数据迁移系统，支持自动推送（db push）或生成可追踪的 migration 文件，适配开发和生产需求。
+
+  - title: 跨平台生态良好
+    details: Prisma 与 Node.js、TypeScript、Next.js、Express、NestJS 等生态无缝集成，适合构建现代 Web 和全栈应用。
+
 ---
 
