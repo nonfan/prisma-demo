@@ -36,7 +36,7 @@ const newUser = await prisma.user.create({ data: { name: 'Alice', email: 'alice@
 
 使用 `schema.prisma` 文件定义数据模型，描述数据库表结构和关系。
 
-```ts
+```text
 model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
