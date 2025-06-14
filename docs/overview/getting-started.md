@@ -179,3 +179,44 @@ app.delete("/users", async (req, res) => {
   res.json(data);
 });
 ```
+
+## Next.js框架
+
+::: danger BUG
+按照上诉方式运行在NextJs框架会遇到 [@prisma/client did not initialize yet. Please run "prisma generate" and try to import it again](https://github.com/prisma/prisma/discussions/22213) 错误, 按照如下方式进行解决。
+:::
+
+无论您是使用 `new PrismaClient()` 实例一个 `db` 还是如下使用一个单例模式（避免热重载），都将遇到如上错误：
+
+```ts
+import { PrismaClient } from "@prisma/client";
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined;
+};
+
+export const prisma =
+  globalForPrisma.prisma ??
+  new PrismaClient({ log: ["query", "error", "warn"] });
+
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+```
+
+根本原因是 `@prisma/client` 找不到 Prisma 客户端，故作如下修改即可：
+
+```ts
+import { PrismaClient } from "@prisma/client"; // [!code --]
+import { PrismaClient } from "@/generated/prisma"; // [!code ++]
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined;
+};
+
+export const prisma =
+  globalForPrisma.prisma ??
+  new PrismaClient({ log: ["query", "error", "warn"] });
+
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+```
+
+这里的 `@/generated/prisma` 导入路径根据您 `schema.prisma` 的 `output` 输出路径。
