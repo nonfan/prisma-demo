@@ -2,16 +2,16 @@ import { defineConfig } from "vitepress";
 
 export default defineConfig({
   title: "Prisma",
-  base: "/prisma-demo/",
+  base: "/prisma-docs/",
   description:
     "使用 Prisma 可以为您提供一流的 TypeScript ORM、声明式数据库迁移系统以及包含入门所需的一切的数据库。",
   lang: "zh-CN",
   cleanUrls: true,
   sitemap: {
-    hostname: "https://nonfan.github.io/prisma-demo/",
+    hostname: "https://nonfan.github.io/prisma-docs/",
   },
   head: [
-    ["link", { rel: "icon", href: "/prisma-demo/logo.png" }],
+    ["link", { rel: "icon", href: "/prisma-docs/logo.png" }],
   ],
   themeConfig: {
     siteTitle: false,
@@ -53,10 +53,10 @@ export default defineConfig({
       provider: "local",
     },
     socialLinks: [
-      { icon: "github", link: "https://github.com/nonfan/prisma-demo" },
+      { icon: "github", link: "https://github.com/nonfan/prisma-docs" },
     ],
     editLink: {
-      pattern: "https://github.com/nonfan/prisma-demo/edit/docs/docs/:path",
+      pattern: "https://github.com/nonfan/prisma-docs/edit/docs/docs/:path",
       text: "在 GitHub 上编辑此页面",
     },
     footer: {
