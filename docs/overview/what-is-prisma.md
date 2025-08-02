@@ -61,7 +61,7 @@ model Post {
 提供数据库迁移工具，同步 `schema.prisma` 和数据库结构。
 
 ```bash
-npx prisma migrate dev  # 创建并应用迁移
+npx prisma migrate dev  # 创建并应用迁移 可选：--name migrate_file
 npx prisma generate     # 根据 schema 生成 Prisma Client
 ```
 
